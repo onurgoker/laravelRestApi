@@ -83,7 +83,7 @@ $user->password = bcrypt("temp123");
 
 Delete subscription (dont forget to update available subscription id):
 
-~~~ 
+~~~
 $controller = app()->make('App\Http\Controllers\SubscriptionController');
 app()->call([$controller,'delete'], ['id' => 1]);
 ~~~
