@@ -2,8 +2,10 @@
 
 Developer notes: PSR standarts are applied with respect to SonarLint tool configuration.
 
-Created by: Onur GÖKER
+Suggested IDE / Text Editor: Visual Studio Code
 
+Created by: Onur GÖKER
+Laravel Version: v10.X
 Created at: 2023-09-24
 
 ## Requirements
