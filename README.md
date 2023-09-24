@@ -1,6 +1,9 @@
 # Laravel Rest API v1.0.0
 
-Developer notes: PSR standarts are applied with respect to SonarLint tool configuration.
+Developer notes: 
+PSR standarts are applied with respect to SonarLint tool configuration.
+Some unit tests are cli execution commands are described for testing purposes to demonstrate the functionality.
+This project does not fully support all unit tests.
 
 Suggested IDE / Text Editor: Visual Studio Code
 
