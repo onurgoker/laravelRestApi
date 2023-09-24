@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
@@ -31,14 +30,14 @@ class SubscriptionController extends Controller
             return response()->json([
                 'code' => 404, // 'code' => '404
                 'message' => 'No user found',
-            ]);
+            ], 404);
         }
 
         return response()->json([
             'code' => 200, // 'code' => '200
             'message' => 'Successfully retrieved subscription',
             'data' => ['subscriptions' => $user->subscription, 'transactions' => $user->transactions],
-        ]);
+        ], 200);
     }
 
     public function store(): JsonResponse
@@ -54,7 +53,7 @@ class SubscriptionController extends Controller
                     'code' => 422,
                     'message' => 'Invalid request',
                     'error' => $validator->errors(),
-                ]);
+                ], 422);
             }
 
             Subscription::create([
@@ -68,14 +67,14 @@ class SubscriptionController extends Controller
             return response()->json([
                 'code' => 201,
                 'message' => 'Successfully created subscription',
-            ]);
+            ], 201);
 
         } catch (\Throwable $th) {
             return response()->json([
                 'code' => 500,
                 'message' => 'Failed to create subscription',
                 'error' => $th->getMessage(),
-            ]);
+            ], 500);
         }
     }
 
@@ -92,7 +91,7 @@ class SubscriptionController extends Controller
                     'code' => 422,
                     'message' => 'Invalid request',
                     'error' => $validator->errors(),
-                ]);
+                ], 422);
             }
 
             $subscription = Subscription::findOrFail(request('id'));
@@ -101,7 +100,7 @@ class SubscriptionController extends Controller
                 return response()->json([
                     'code' => 404,
                     'message' => 'No subscription found',
-                ]);
+                ], 404);
             }
 
             $subscription->update([
@@ -113,13 +112,13 @@ class SubscriptionController extends Controller
             return response()->json([
                 'code' => 200,
                 'message' => 'Successfully updated subscription',
-            ]);
+            ], 200);
         } catch (\Throwable $th) {
             return response()->json([
                 'code' => 500,
                 'message' => 'Failed to create subscription',
                 'error' => $th->getMessage(),
-            ]);
+            ], 500);
         }
     }
 
@@ -132,7 +131,7 @@ class SubscriptionController extends Controller
                 return response()->json([
                     'code' => 404,
                     'message' => 'No subscription found',
-                ]);
+                ], 404);
             }
 
             $subscription->delete();
@@ -140,16 +139,13 @@ class SubscriptionController extends Controller
             return response()->json([
                 'code' => 200,
                 'message' => 'Successfully deleted subscription',
-            ]);
+            ], 200);
         } catch (\Throwable $th) {
             return response()->json([
                 'code' => 500,
                 'message' => 'Failed to delete subscription',
                 'error' => $th->getMessage(),
-            ]);
+            ], 500);
         }
-
-
-
     }
 }

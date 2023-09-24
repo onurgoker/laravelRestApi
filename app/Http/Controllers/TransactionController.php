@@ -17,7 +17,7 @@ class TransactionController extends Controller
                 return response()->json([
                     'code' => 404,
                     'message' => 'No user found',
-                ]);
+                ], 404);
             }
 
             $user->transactions()->create([
@@ -28,13 +28,13 @@ class TransactionController extends Controller
             return response()->json([
                 'code' => 201,
                 'message' => 'Successfully created transaction',
-            ]);
+            ], 201);
         } catch (\Throwable $th) {
             return response()->json([
                 'code' => 500,
                 'message' => 'Failed to create transaction',
                 'error' => $th->getMessage(),
-            ]);
+            ], 500);
         }
     }
 }
