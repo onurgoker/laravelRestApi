@@ -34,7 +34,7 @@ class SubscriptionController extends Controller
         return response()->json([
             'code' => 200, // 'code' => '200
             'message' => 'Successfully retrieved subscription',
-            'data' => ['subscriptions' => $user->subscription, 'transactions' => $user->transactions],
+            'data' => ['subscriptions' => $user->subscriptions()->with('transactions')->get()],
         ], 200);
     }
 
