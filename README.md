@@ -61,6 +61,11 @@ Create a new user:
 | $user->password = bcrypt("temp123");
 | $user->save();
 
+Delete subscription (dont forget to update available subscription id):
+
+| $controller = app()->make('App\Http\Controllers\SubscriptionController');
+| app()->call([$controller,'delete'], ['id' => 1]);
+
 List all transactions:
 
 | App\Models\Transaction::all();
