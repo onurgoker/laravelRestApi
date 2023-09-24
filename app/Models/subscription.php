@@ -9,7 +9,7 @@ class subscription extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id'];
+    protected $fillable = ['user_id', 'renewed_at', 'expired_at'];
     public $timestamps = false;
 
     public function transactions()
