@@ -6,9 +6,9 @@ Suggested IDE / Text Editor: Visual Studio Code
 
 Laravel Version: v10.X
 Used libraries:
-- Laravel Sanctum
-- Laravel Tinker
-- Laravel Test
+- Laravel Sanctum for application security
+- Laravel Tinker for cli execution support
+- Laravel Test for unit tests
 
 Created by: Onur GÖKER
 
