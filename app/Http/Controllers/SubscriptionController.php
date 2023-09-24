@@ -23,7 +23,7 @@ class SubscriptionController extends Controller
     }
     public function get(): JsonResponse
     {
-        $user = User::findOrFail(request('id'));
+        $user = User::find(request('id'));
 
         if ($user->isEmpty()) {
             return response()->json([
@@ -92,7 +92,7 @@ class SubscriptionController extends Controller
                 ], 422);
             }
 
-            $subscription = Subscription::findOrFail(request('id'));
+            $subscription = Subscription::find(request('id'));
 
             if($subscription->isEmpty()) {
                 return response()->json([
@@ -123,9 +123,9 @@ class SubscriptionController extends Controller
     public function delete(): JsonResponse
     {
         try {
-            $subscription = Subscription::findOrFail(request('id'));
+            $subscription = Subscription::find(request('id'));
 
-            if($subscription->isEmpty()) {
+            if(!$subscription) {
                 return response()->json([
                     'code' => 404,
                     'message' => 'No subscription found',
