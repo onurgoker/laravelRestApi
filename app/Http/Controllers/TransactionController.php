@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\subscription;
+use App\Models\Transaction;
 use Illuminate\Http\JsonResponse;
 
 use App\Models\User;
@@ -11,16 +13,17 @@ class TransactionController extends Controller
     public function store(): JsonResponse
     {
         try {
-            $user = User::findOrFail(request('subscription_id'));
+            $subscription = Subscription::where(
+                ['user_id' => request('id'), 'id' => request('subscription_id')])->first();
 
-            if($user->isEmpty()) {
+            if(!$subscription) {
                 return response()->json([
                     'code' => 404,
-                    'message' => 'No user found',
+                    'message' => 'No subscription found',
                 ], 404);
             }
 
-            $user->transactions()->create([
+            Transaction::create([
                 'subscription_id' => request('subscription_id'),
                 'price' => request('price'),
             ]);

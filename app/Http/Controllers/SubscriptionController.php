@@ -19,13 +19,12 @@ class SubscriptionController extends Controller
     public function __construct()
     {
         $this->subscriptionLength = env('APP_SUBSCRIPTION_DURATION_IN_MONTH');
-        $this->subscriptionPrice = env('APP_SUBSCRIPTION_PRICE');
     }
     public function get(): JsonResponse
     {
         $user = User::find(request('id'));
 
-        if ($user->isEmpty()) {
+        if (!$user) {
             return response()->json([
                 'code' => 404, // 'code' => '404
                 'message' => 'No user found',
@@ -57,7 +56,7 @@ class SubscriptionController extends Controller
 
             Subscription::create([
                 'user_id' => request('user_id'),
-                'price' => $this->subscriptionPrice,
+                'price' => request('price'),
                 'renewed_at' => request('renewed_at'),
                 'expired_at' => date(
                     'Y-m-d H:i:s', strtotime(request('renewed_at') . " + {$this->subscriptionLength} months")),
@@ -94,7 +93,7 @@ class SubscriptionController extends Controller
 
             $subscription = Subscription::find(request('id'));
 
-            if($subscription->isEmpty()) {
+            if(!$subscription) {
                 return response()->json([
                     'code' => 404,
                     'message' => 'No subscription found',

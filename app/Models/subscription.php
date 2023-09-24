@@ -11,4 +11,9 @@ class subscription extends Model
 
     protected $fillable = ['user_id'];
     public $timestamps = false;
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }

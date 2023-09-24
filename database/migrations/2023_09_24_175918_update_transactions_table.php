@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('subscriptions', function (Blueprint $table) {
-            $table->string('renewed_at')->nullable()->change();
-            $table->string('expired_at')->nullable()->change();
+        Schema::table('transactions', function (Blueprint $table) {
+            $table->string('price')->nullable()->change();
         });
     }
 
@@ -22,9 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('subscriptions', function (Blueprint $table) {
-            $table->string('renewed_at')->change();
-            $table->string('expired_at')->change();
+        Schema::table('transactions', function (Blueprint $table) {
+            $table->string('price')->change();
         });
     }
 };
