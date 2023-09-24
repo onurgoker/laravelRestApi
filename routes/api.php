@@ -19,7 +19,7 @@ use App\Http\Controllers\TransactionController;
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 
-Route::prefix('user')->middleware('auth:api')->group(function () {
+Route::prefix('user')->middleware('auth:sanctum')->group(function () {
     Route::post('/{id}/subscription', [SubscriptionController::class, 'store']); //done
     Route::put('/{id}/subscription/{user_id}', [SubscriptionController::class, 'update']); //done
     Route::delete('/{id}/subscription   ', [SubscriptionController::class, 'delete']); //done

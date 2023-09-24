@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transactions', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('subscription_id')->constrained()->onDelete('cascade');
-            $table->integer('price');
-            $table->timestamps();
+        Schema::table('subscriptions', function (Blueprint $table) {
+            $table->string('renewed_at')->nullable()->change();
+            $table->string('expired_at')->nullable()->change();
         });
     }
 
@@ -24,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('subscriptions');
+        Schema::table('subscriptions', function (Blueprint $table) {
+            //
+        });
     }
 };

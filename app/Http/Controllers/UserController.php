@@ -9,18 +9,20 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+    private $requiredStringValidation = 'required|string';
+
     public function register(Request $request)
     {
         $validator = Validator::make(request()->all(), [
-            'name' => 'required|string',
+            'name' => $this->requiredStringValidation,
             'email' => 'required|unique:users',
-            'password' => 'required|string',
+            'password' => $this->requiredStringValidation,
         ]);
 
         if($validator->fails()){
             return response()->json([
                 'code' => 422,
-                'message' => 'Validation failed',
+                'message' => $validator->errors(),
             ], 422);
         }
 
@@ -42,7 +44,7 @@ class UserController extends Controller
     {
         $request->validate([
             'email' => 'required',
-            'password' => 'required|string',
+            'password' => $this->requiredStringValidation,
         ]);
 
         $user = User::where('email', $request->email)->first();

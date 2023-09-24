@@ -18,7 +18,6 @@ class SubscriptionController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:api');
         $this->subscriptionLength = env('APP_SUBSCRIPTION_DURATION_IN_MONTH');
         $this->subscriptionPrice = env('APP_SUBSCRIPTION_PRICE');
     }
@@ -44,7 +43,7 @@ class SubscriptionController extends Controller
     {
         try {
             $validator = Validator::make(request()->all(), [
-                'user_id' => 'required | number',
+                'user_id' => 'required',
                 'renewed_at' => 'required | string',
             ]);
 
