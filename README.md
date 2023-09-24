@@ -45,6 +45,9 @@ php artisan serve
 ~~~
 
 Sample Postman collection is available in root directory!
+~~~
+https://github.com/onurgoker/laravelRestApi/blob/main/Laravel%20Rest%20API.postman_collection.json
+~~~
 
 TODO: Unit test and commands
 
