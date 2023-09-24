@@ -97,3 +97,9 @@ List all transactions:
 ~~~
 App\Models\Transaction::all();
 ~~~
+
+List all subscriptions:
+
+~~~
+App\Models\Subscription::all();
+~~~
