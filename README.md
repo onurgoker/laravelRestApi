@@ -22,7 +22,7 @@ Created at: 2023-09-24
 - PHP 8.X or higher
 - MySQL or MariaDB 10.4 or higher
 - Apache or nginx server or local Laravel server
-## Runing Application
+## Running Application
 
 - Just fork the repository and configure your environment accordingly.
 - Run the following command: 
