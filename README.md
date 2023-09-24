@@ -1,4 +1,4 @@
-# Laravel Rest API
+# Laravel Rest API v1.0.0
 
 ## Requirements
 
@@ -22,3 +22,5 @@ Run the following command and execute the laravel application
 | php artisan serve
 
 Sample Postman collection is available in root directory!
+
+TODO: Unit test and commands

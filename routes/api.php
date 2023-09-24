@@ -26,18 +26,3 @@ Route::prefix('user')->middleware('auth:api')->group(function () {
     Route::post('/{id}/transaction', [TransactionController::class, 'store']); //done
     Route::get('/{id}', [SubscriptionController::class, 'get']); //done
 });
-
-
-/*
-service design pattern +
-check endpoint return values +
-validation +
-register +
-auth +
-subscription logic +
-postman api doc +
-postman collection
-github api doc
-unit test
-commands
-*/
