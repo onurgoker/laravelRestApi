@@ -63,9 +63,13 @@ List all the users:
 Create a new user:
 
 | $user = new App\Models\User;
+
 | $user->name = "testUser";
+
 | $user->email = "testUser@usertest.com";
+
 | $user->password = bcrypt("temp123");
+
 | $user->save();
 
 Delete subscription (dont forget to update available subscription id):
