@@ -1,5 +1,11 @@
 # Laravel Rest API v1.0.0
 
+Developer notes: PSR standarts are applied with respect to SonarLint tool configuration.
+
+Created by: Onur GÖKER
+
+Created at: 2023-09-24
+
 ## Requirements
 
 - PHP 8.X or higher
