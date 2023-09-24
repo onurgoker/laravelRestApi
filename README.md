@@ -34,3 +34,33 @@ Run the following command and execute the laravel application
 Sample Postman collection is available in root directory!
 
 TODO: Unit test and commands
+
+## Running Unit Tests
+
+To run unit tests just execute the following command in project root directory:
+
+| php artisan test
+
+## Running Application via CLI
+
+Laravel tinker will provide execution of the application via CLI. Execute the following command in your project's root directory:
+
+| php artisan tinker
+
+Now one can run the application via CLI. Sample commands:
+
+List all the users:
+
+| App\Models\User::all();
+
+Create a new user:
+
+| $user = new App\Models\User;
+| $user->name = "testUser";
+| $user->email = "testUser@usertest.com";
+| $user->password = bcrypt("temp123");
+| $user->save();
+
+List all transactions:
+
+| App\Models\Transaction::all();
