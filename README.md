@@ -79,7 +79,8 @@ $user = new App\Models\User;
 $user->name = "testUser";
 $user->email = "testUser@usertest.com";
 $user->password = bcrypt("temp123");
-~~~$user->save();
+$user->save();
+~~~
 
 Delete subscription (dont forget to update available subscription id):
 
