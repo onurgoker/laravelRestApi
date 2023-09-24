@@ -5,6 +5,10 @@ Developer notes: PSR standarts are applied with respect to SonarLint tool config
 Suggested IDE / Text Editor: Visual Studio Code
 
 Laravel Version: v10.X
+Used libraries:
+- Laravel Sanctum
+- Laravel Tinker
+- Laravel Test
 
 Created by: Onur GÖKER
 
