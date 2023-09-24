@@ -81,7 +81,6 @@ class SubscriptionController extends Controller
     {
         try {
             $validator = Validator::make(request()->all(), [
-                'user_id' => 'required | number',
                 'renewed_at' => 'required | string',
             ]);
 
