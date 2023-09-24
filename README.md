@@ -8,6 +8,7 @@ This project does not fully support all unit tests because of limited time affor
 Suggested IDE / Text Editor: Visual Studio Code
 
 Laravel Version: v10.X
+
 Used libraries:
 - Laravel Sanctum for application security
 - Laravel Tinker for cli execution support
